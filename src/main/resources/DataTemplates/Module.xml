@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+	<Number>2</Number>
+	<Courses>
+		<Course>
+			<Name>Calculo II</Name>
+			<Grade>9.0</Grade>
+			<Oportinity>1</Oportinity>
+		</Course>
+		<Course>
+			<Name>Fisica III</Name>
+			<Grade>8.5</Grade>
+			<Oportinity>1</Oportinity>
+		</Course>
+	</Courses>
+	<ModuleDuration>4</ModuleDuration>
+	<InitDate>2015/01/01</InitDate>
+</Module>

@@ -1,0 +1,68 @@
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://uriel.santoyo.com/tws/schemas" xmlns:tws="http://uriel.santoyo.com/tws/schemas">
+	
+	<!-- Operations -->
+	
+	<!-- Search for studend info by his ID -->
+	<xs:element name="getStudentRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="id" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="getStudentResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="student" type="tws:Student" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<!-- Search for module data by student ID and module number -->
+	<xs:element name="getModuleRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="id" type="xs:string" />
+				<xs:element name="moduleNumber" type="xs:integer" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="getModuleResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="module" type="tws:Module" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<!-- Types -->
+	<xs:complexType name="Course">
+		<xs:all>
+			<xs:element type="xs:string" name="Name" />
+			<xs:element type="xs:decimal" name="Grade" />
+			<xs:element type="xs:integer" name="Oportinity" />
+		</xs:all>
+	</xs:complexType>
+
+	<xs:complexType name="Module">
+		<xs:sequence>
+			<xs:element type="xs:integer" name="Number" />
+			<xs:element type="tws:Course" name="Courses" minOccurs="1"
+				maxOccurs="unbounded" />
+			<xs:element type="xs:integer" name="ModuleDuration" />
+			<xs:element type="xs:date" name="InitDate" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Student">
+		<xs:sequence>
+			<xs:element type="xs:NCName" name="FirstName" />
+			<xs:element type="xs:NCName" name="LastName" />
+			<xs:element type="xs:string" name="Id" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
